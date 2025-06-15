@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>God's Tova | Tova Shots</title>
+  <style>
+   /* Light Mode Support */
+body.light-mode {
+  background-color: #fff;
+  color: #000;
+  background: #fff url('logo.png') no-repeat center center fixed;
+  background-size: contain;
+}
+
+body.light-mode::before {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+body.light-mode header,
+body.light-mode footer {
+  background: #222;
+  color: #fff;
+}
+
+body.light-mode a {
+  color: #0057ff;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* makes it darker */
+  z-index: -1;
+}
+    header {
+      background: #0057ff;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header img {
+      height: 80px;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax());
+      justify-content: center;
+    }
+    .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.03);
+}
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    footer {
+      background: #0057ff;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    a {
+      color: #00bfff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="position: relative;">
+      <button onclick="toggleTheme()" style="position: absolute; top: 0; right: 0; padding: 8px 12px; border: none; border-radius: 4px; background: #fff; color: #0057ff; cursor: pointer;">
+        Toggle Theme
+      </button>
+      <img src="logo.jpg" alt="Tova Shots Logo" />
+      <h1>God's Tova</h1>
+      <p>Photographer | Songwriter | UI/UX Designer | Founder of Tova Shots</p>
+    </div>
+  </header>
+  
+
+  <section>
+    <h2>About</h2>
+    <p>
+      God's Tova is a passionate Nigerian creative whose work flows through visuals, sound, and design. As the founder of <strong>Tova Shots</strong>, they specialize in storytelling through photography, emotionally rich songwriting, and intuitive digital design.
+    </p>
+    <p>
+      With a keen eye for detail and a heart grounded in purpose, God's Tova creates experiences — from camera to screen — that glorify God and inspire people.
+    </p>
+  </section>
+
+  <section>
+    <h2>Photography – Tova Shots</h2>
+<p>
+  Every image you see here is more than a photograph — it’s a declaration. A declaration of light, identity, and intentional beauty. Through the lens of <strong>Tova Shots</strong>, I don’t just capture faces; I preserve divine essence, raw emotion, and timeless storytelling.
+</p>
+<p>
+  Whether it’s a glowing portrait, a sacred moment, or an untold story whispered through light and shadow, my work is led by purpose — to reveal beauty in every soul and show God in every frame.
+</p>
+<p>
+  Welcome to my visual altar. Let the photos speak.
+</p>
+<section id="gallery">
+    <h2>Gallary</h2>
+    <div class="gallary-grid">
+      <img src="photo1.jpg" alt="Portrait 1" onclick="openLightbox(this)" />
+      <img src="photo2.jpg" alt="Portrait 2" onclick="openLightbox(this)" />
+      <img src="photo3.jpg" alt="Portrait 3" onclick="openLightbox(this)" />
+      <img src="photo4.jpg" alt="Portrait 4" onclick="openLightbox(this)" />
+      <img src="photo5.jpg" alt="Portrait 5" onclick="openLightbox(this)" />
+      <img src="photo6.jpg" alt="Portrait 6" onclick="openLightbox(this)" />
+    </div>
+</section>
+    </div>
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <img id="lightbox-img" src="" alt="Preview" />
+    </div>
+  </section>
+
+  <section>
+    <h2>Music & Songwriting</h2>
+    <p>Coming soon: music links and original lyrics.</p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:adesolaadeniyi444@gmail.com">adesolaadeniyi444@gmail.com</a></p>
+    <p>Instagram: <a href="https://instagram.com/tovashots" target="_blank">@tovashots</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 God's Tova. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function openLightbox(img) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = img.src;
+      lightbox.classList.add('active');
+    }
+  
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+    }
+  
+    // Close lightbox with ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  
+    // Lazy load images
+    document.addEventListener('DOMContentLoaded', () => {
+      const imgs = document.querySelectorAll('.gallery-grid img');
+      imgs.forEach(img => {
+        img.setAttribute('loading', 'lazy');
+      });
+    });
+  
+    // Toggle theme
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+  </script>
+  
+</body>
+</html>
