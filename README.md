@@ -6,8 +6,8 @@
 
 ## 🌐 Live Preview
 
-> _(Optional)_ Add a link here if deployed on GitHub Pages, Vercel, Netlify, etc.  
-> Example: https://yourusername.github.io/tova-shots/
+ 
+(https://github.com/TOVA2004/tovashots.git)
 
 ---
 
